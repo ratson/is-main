@@ -20,10 +20,6 @@ if (isMain(import.meta)) {
 }
 ```
 
-Note the above will only work when using `esm`,
-it will fail on Node v10 as `process.mainModule` is `undefined` for `.mjs`.
-
-
 ```js
 const isMain = require('is-main')
 
@@ -31,3 +27,11 @@ if (isMain(module)) {
   console.log('is main')
 }
 ```
+
+## Note
+
+While it is useful to put main script with the module code in the same file,
+move main script into a separate file is often better,
+given there is no standard way for detecting main script.
+
+See this [Node issue](https://github.com/nodejs/node/issues/15760) for more information.

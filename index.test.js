@@ -44,7 +44,7 @@ test('return true for main module', async t => {
   t.is(stdout, 'is main')
 })
 
-test.failing('[Node v10] return true for main module', async t => {
+test('[Node v10] return true for main module', async t => {
   if (await isNode10()) {
     const { stdout: stdoutMjs } = await execa('node', [
       '--experimental-modules',
@@ -52,4 +52,18 @@ test.failing('[Node v10] return true for main module', async t => {
     ])
     t.is(stdoutMjs, 'is main')
   }
+
+  t.pass()
+})
+
+test('[Node v10] return false for non-main module', async t => {
+  if (await isNode10()) {
+    const { stdout } = await execa('node', [
+      '--experimental-modules',
+      require.resolve('./test/fixtures/non-main.mjs'),
+    ])
+    t.is(stdout, '')
+  }
+
+  t.pass()
 })

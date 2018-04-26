@@ -20,6 +20,10 @@ if (isMain(import.meta)) {
 }
 ```
 
+Note the above will only work when using `esm`,
+it will fail on Node v10 as `process.mainModule` is `undefined` for `.mjs`.
+
+
 ```js
 const isMain = require('is-main')
 

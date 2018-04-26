@@ -3,6 +3,11 @@ import execa from 'execa'
 
 import isMain from '.'
 
+async function isNode10() {
+  const { stdout } = await execa('node', ['--version'])
+  return stdout.indexOf('v10.') === 0
+}
+
 test('return false for undefined', t => {
   t.false(isMain())
 })
@@ -37,4 +42,14 @@ test('return true for main module', async t => {
     require.resolve('./test/fixtures/main.js'),
   ])
   t.is(stdout, 'is main')
+})
+
+test.failing('[Node v10] return true for main module', async t => {
+  if (await isNode10()) {
+    const { stdout: stdoutMjs } = await execa('node', [
+      '--experimental-modules',
+      require.resolve('./test/fixtures/main.mjs'),
+    ])
+    t.is(stdoutMjs, 'is main')
+  }
 })

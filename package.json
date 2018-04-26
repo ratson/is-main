@@ -4,21 +4,23 @@
   "description": "Check if current module is main module.",
   "scripts": {
     "lint": "eslint --ext js,md .",
-    "test": "jest",
+    "test": "ava",
     "precommit": "lint-staged",
-    "prepush": "jest"
+    "prepush": "ava"
   },
   "dependencies": {},
   "devDependencies": {
+    "ava": "^1.0.0-beta.4",
     "eslint": "^4.19.1",
-    "eslint-config-concise": "^0.22.0",
+    "eslint-config-concise": "^0.23.0",
+    "eslint-config-concise-ava": "^0.23.0",
     "eslint-config-concise-esnext": "^0.22.0",
-    "eslint-config-concise-jest": "^0.20.0",
-    "esm": "^3.0.17",
+    "eslint-config-concise-jest": "^0.23.0",
+    "esm": "^3.0.27",
     "execa": "^0.10.0",
     "husky": "^0.14.3",
     "jest": "^22.4.3",
-    "lint-staged": "^7.0.4",
+    "lint-staged": "^7.0.5",
     "npm-run-all": "^4.1.2",
     "prettier-eslint-cli": "^4.7.1"
   },
@@ -39,6 +41,19 @@
     "main",
     "esm"
   ],
+  "ava": {
+    "babel": false,
+    "require": [
+      "esm"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "concise",
+      "concise-esnext",
+      "concise-ava"
+    ]
+  },
   "lint-staged": {
     "*.js": [
       "prettier-eslint --write",

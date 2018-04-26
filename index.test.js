@@ -1,41 +1,40 @@
-'use strict'
+import test from 'ava'
+import execa from 'execa'
 
-const execa = require('execa')
+import isMain from '.'
 
-const isMain = require('.')
-
-test('return false for undefined', () => {
-  expect(isMain()).toBe(false)
+test('return false for undefined', t => {
+  t.false(isMain())
 })
 
-test('return false for non-main ESM', async () => {
+test('return false for non-main ESM', async t => {
   const { stdout } = await execa('node', [
     '-r',
     'esm',
     require.resolve('./test/fixtures/non-main.mjs'),
   ])
-  expect(stdout).toBe('')
+  t.is(stdout, '')
 })
 
-test('return true for main ESM', async () => {
+test('return true for main ESM', async t => {
   const { stdout } = await execa('node', [
     '-r',
     'esm',
     require.resolve('./test/fixtures/main.mjs'),
   ])
-  expect(stdout).toBe('is main')
+  t.is(stdout, 'is main')
 })
 
-test('return false for non-main module', async () => {
+test('return false for non-main module', async t => {
   const { stdout } = await execa('node', [
     require.resolve('./test/fixtures/non-main.js'),
   ])
-  expect(stdout).toBe('')
+  t.is(stdout, '')
 })
 
-test('return true for main module', async () => {
+test('return true for main module', async t => {
   const { stdout } = await execa('node', [
     require.resolve('./test/fixtures/main.js'),
   ])
-  expect(stdout).toBe('is main')
+  t.is(stdout, 'is main')
 })

@@ -12,10 +12,10 @@
   "devDependencies": {
     "ava": "^1.0.0-beta.4",
     "eslint": "^4.19.1",
-    "eslint-config-concise": "^0.23.0",
+    "eslint-config-concise": "^0.24.0",
     "eslint-config-concise-ava": "^0.23.0",
-    "eslint-config-concise-esnext": "^0.22.0",
-    "esm": "^3.0.27",
+    "eslint-config-concise-esnext": "^0.24.1",
+    "esm": "^3.0.28",
     "execa": "^0.10.0",
     "husky": "^0.14.3",
     "lint-staged": "^7.0.5",

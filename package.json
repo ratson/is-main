@@ -1,6 +1,6 @@
 {
   "name": "is-main",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Check if current module is main module.",
   "scripts": {
     "lint": "eslint --ext js,md .",

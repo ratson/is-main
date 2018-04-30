@@ -27,3 +27,17 @@ test('return false for url with querystring', t => {
 
   t.false(isMain({ url: 'file:///root?test=true' }))
 })
+
+test('return true using process.argv[1]', t => {
+  process.mainModule = undefined
+  process.argv = [null, '/root.mjs']
+
+  t.true(isMain({ url: 'file:///root.mjs' }))
+})
+
+test('return true for process.argv[1] without file extention', t => {
+  process.mainModule = undefined
+  process.argv = [null, '/root']
+
+  t.true(isMain({ url: 'file:///root.mjs' }))
+})

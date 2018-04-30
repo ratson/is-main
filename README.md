@@ -35,3 +35,7 @@ move main script into a separate file is often better,
 given there is no standard way for detecting main script.
 
 See this [Node issue](https://github.com/nodejs/node/issues/15760) for more information.
+
+## Related
+
+- [esmeta](https://github.com/ratson/esmeta) - Handy function to handle import.meta

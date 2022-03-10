@@ -4,9 +4,7 @@
   "description": "Check if current module is main module.",
   "scripts": {
     "lint": "eslint --ext js,md .",
-    "test": "ava",
-    "precommit": "lint-staged",
-    "prepush": "ava"
+    "test": "ava"
   },
   "devDependencies": {
     "ava": "^1.0.0-beta.4",
@@ -16,9 +14,9 @@
     "eslint-config-concise-esnext": "^0.24.1",
     "esm": "^3.0.28",
     "execa": "^0.10.0",
-    "husky": "^0.14.3",
     "lint-staged": "^7.0.5",
-    "preslint": "^0.23.1"
+    "preslint": "^0.23.1",
+    "simple-git-hooks": "^2.7.0"
   },
   "repository": "ratson/is-main",
   "license": "MIT",
@@ -54,5 +52,9 @@
     "*.js": [
       "preslint --fix --git"
     ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged",
+    "pre-push": "npx ava"
   }
 }

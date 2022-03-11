@@ -33,7 +33,8 @@
     "require",
     "process",
     "main",
-    "esm"
+    "esm",
+    "es-main"
   ],
   "ava": {
     "babel": false,

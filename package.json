@@ -3,20 +3,16 @@
   "version": "0.2.0",
   "description": "Check if current module is main module.",
   "scripts": {
-    "lint": "eslint --ext js,md .",
+    "lint": "xo",
     "test": "ava"
   },
   "devDependencies": {
     "ava": "^1.0.0-beta.4",
-    "eslint": "^4.19.1",
-    "eslint-config-concise": "^0.24.0",
-    "eslint-config-concise-ava": "^0.23.0",
-    "eslint-config-concise-esnext": "^0.24.1",
     "esm": "^3.0.28",
     "execa": "^0.10.0",
     "lint-staged": "^7.0.5",
-    "preslint": "^0.23.1",
-    "simple-git-hooks": "^2.7.0"
+    "simple-git-hooks": "^2.7.0",
+    "xo": "^0.48.0"
   },
   "repository": "ratson/is-main",
   "license": "MIT",
@@ -42,20 +38,21 @@
       "esm"
     ]
   },
-  "eslintConfig": {
-    "extends": [
-      "concise",
-      "concise-esnext",
-      "concise-ava"
-    ]
-  },
   "lint-staged": {
     "*.js": [
-      "preslint --fix --git"
+      "xo --fix"
     ]
+  },
+  "prettier": {
+    "singleQuote": false,
+    "useTabs": false,
+    "bracketSpacing": true
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged",
     "pre-push": "npx ava"
+  },
+  "xo": {
+    "prettier": true
   }
 }

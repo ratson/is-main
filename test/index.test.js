@@ -1,5 +1,5 @@
+import process from "node:process";
 import test from "ava";
-
 import isMain from "..";
 
 test.beforeEach((t) => {

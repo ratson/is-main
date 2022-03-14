@@ -1,5 +1,7 @@
 "use strict";
 
+const process = require("process");
+
 module.exports = (importMetaOrModule) => {
   if (!importMetaOrModule || typeof process === "undefined") {
     return false;

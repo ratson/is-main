@@ -2,6 +2,7 @@
   "name": "is-main",
   "version": "0.2.0",
   "description": "Check if current module is main module.",
+  "type": "module",
   "scripts": {
     "lint": "xo",
     "test": "ava"

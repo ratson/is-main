@@ -1,8 +1,6 @@
-"use strict";
+import process from "node:process";
 
-const process = require("process");
-
-module.exports = (importMetaOrModule) => {
+function isMain(importMetaOrModule) {
   if (!importMetaOrModule || typeof process === "undefined") {
     return false;
   }
@@ -21,4 +19,6 @@ module.exports = (importMetaOrModule) => {
   }
 
   return importMetaOrModule.url === `file://${process.mainModule.filename}`;
-};
+}
+
+export default isMain;

@@ -8,10 +8,10 @@
     "test": "ava"
   },
   "devDependencies": {
-    "ava": "^1.0.0-beta.4",
-    "esm": "^3.0.28",
-    "execa": "^0.10.0",
-    "lint-staged": "^7.0.5",
+    "ava": "^4.1.0",
+    "esm": "^3.2.25",
+    "execa": "^6.1.0",
+    "lint-staged": "^12.3.7",
     "simple-git-hooks": "^2.7.0",
     "xo": "^0.48.0"
   },
@@ -34,12 +34,6 @@
     "es-main",
     "es-module"
   ],
-  "ava": {
-    "babel": false,
-    "require": [
-      "esm"
-    ]
-  },
   "lint-staged": {
     "*.js": [
       "xo --fix"

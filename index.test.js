@@ -1,7 +1,6 @@
 import test from "ava";
 import execa from "execa";
-
-import isMain from ".";
+import isMain from "./index.js";
 
 async function isNode10() {
   const { stdout } = await execa("node", ["--version"]);

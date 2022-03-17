@@ -1,6 +1,6 @@
 import process from "node:process";
 import test from "ava";
-import isMain from "..";
+import isMain from "../index.js";
 
 test.beforeEach((t) => {
   t.context.mainModuleOrigin = process.mainModule;

@@ -25,13 +25,14 @@
     "index.js"
   ],
   "keywords": [
+    "require.main",
     "main-module",
     "import",
-    "require",
     "process",
     "main",
     "esm",
-    "es-main"
+    "es-main",
+    "es-module"
   ],
   "ava": {
     "babel": false,

@@ -5,14 +5,18 @@
   "type": "module",
   "scripts": {
     "lint": "xo",
-    "test": "ava"
+    "test": "ava",
+    "build": "tsc -b",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
+    "@types/node": "^17.0.23",
     "ava": "^4.1.0",
     "esm": "^3.2.25",
     "execa": "^6.1.0",
     "lint-staged": "^12.3.7",
     "simple-git-hooks": "^2.7.0",
+    "typescript": "next",
     "xo": "^0.48.0"
   },
   "repository": "ratson/is-main",
@@ -22,7 +26,8 @@
   },
   "files": [
     "*.md",
-    "index.js"
+    "index.js",
+    "*.ts"
   ],
   "keywords": [
     "require.main",

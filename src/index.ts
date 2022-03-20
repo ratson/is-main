@@ -1,6 +1,8 @@
-import process from "node:process";
+import * as process from "node:process";
 
-function isMain(importMetaOrModule: ImportMeta | NodeJS.Module): boolean {
+export function isMain(
+  importMetaOrModule: ImportMeta | NodeJS.Module,
+): boolean {
   if (!importMetaOrModule || typeof process === "undefined") {
     return false;
   }
@@ -12,6 +14,7 @@ function isMain(importMetaOrModule: ImportMeta | NodeJS.Module): boolean {
   if (!("url" in importMetaOrModule)) {
     return false;
   }
+
   if (!importMetaOrModule.url) {
     return false;
   }

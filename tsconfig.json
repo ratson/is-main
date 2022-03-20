@@ -1,6 +1,15 @@
 {
   "compilerOptions": {
     "module": "NodeNext",
-    "declaration": true
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "./dist/"
+  },
+  "include": ["src/**/*.ts"],
+  "ts-node": {
+    "transpileOnly": true,
+    "moduleTypes": {
+      "jest.config.ts": "cjs"
+    }
   }
 }

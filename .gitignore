@@ -3,5 +3,4 @@ node_modules
 .DS_Store
 yarn.lock
 package-lock.json
-/index.js
-/index.d.ts
+/dist/

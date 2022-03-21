@@ -9,6 +9,7 @@
     "lint": "xo",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "build": "tsc -b",
+    "postinstall": "simple-git-hooks",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {

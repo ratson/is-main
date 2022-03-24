@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "declaration": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+  },
+  "include": ["../src/**/*.ts"]
+}

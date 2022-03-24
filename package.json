@@ -3,8 +3,12 @@
   "version": "0.2.0",
   "description": "Check if current module is main module.",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "types": "dist/esm/index.d.ts",
   "scripts": {
     "lint": "xo",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",

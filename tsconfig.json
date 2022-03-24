@@ -1,14 +1,14 @@
 {
+  "extends": "./tsconfig/tsconfig.base.json",
   "compilerOptions": {
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "declaration": true,
-    "sourceMap": true,
-    "allowJs": true,
-    "esModuleInterop": true,
-    "outDir": "./dist/"
+    "incremental": true,
+    "noEmit": true
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "__tests__/**/*.ts"],
+  "references": [
+    { "path": "./tsconfig/tsconfig.cjs.json" },
+    { "path": "./tsconfig/tsconfig.esm.json" }
+  ],
   "ts-node": {
     "transpileOnly": true,
     "moduleTypes": {

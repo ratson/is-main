@@ -37,7 +37,8 @@
   "files": [
     "*.md",
     "src",
-    "dist"
+    "dist",
+    "!**/*.tsbuildinfo"
   ],
   "keywords": [
     "require.main",

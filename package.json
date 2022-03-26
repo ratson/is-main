@@ -10,9 +10,10 @@
   },
   "types": "dist/esm/index.d.ts",
   "scripts": {
-    "lint": "xo",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "build": "tsc -b",
+    "lint": "xo",
+    "pretest": "npm run build",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "postinstall": "simple-git-hooks",
     "prepublishOnly": "npm run build"
   },
@@ -65,6 +66,9 @@
     "pre-push": "npm run test"
   },
   "xo": {
-    "prettier": true
+    "prettier": true,
+    "ignores": [
+      "test/fixtures"
+    ]
   }
 }

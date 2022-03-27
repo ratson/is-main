@@ -23,3 +23,23 @@ test("return true for main module", async () => {
   const { stdout } = await execa("node", [fixturesDir("main.cjs")]);
   expect(stdout).toBe("is main");
 });
+
+describe("--experimental-modules", () => {
+  test(" return true for main module", async () => {
+    const { stdout } = await execa("node", [
+      "--experimental-modules",
+      fixturesDir("main.mjs"),
+    ]);
+
+    expect(stdout).toBe("is main");
+  });
+
+  test(" return false for non-main module", async () => {
+    const { stdout } = await execa("node", [
+      "--experimental-modules",
+      fixturesDir("non-main.mjs"),
+    ]);
+
+    expect(stdout).toBe("");
+  });
+});

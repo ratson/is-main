@@ -13,7 +13,7 @@ npm install is-main --save
 <!-- eslint-disable strict -->
 
 ```js
-import isMain from 'is-main'
+import { isMain } from 'is-main'
 
 if (isMain(import.meta)) {
   console.log('is main')
@@ -21,7 +21,7 @@ if (isMain(import.meta)) {
 ```
 
 ```js
-const isMain = require('is-main')
+const { isMain } = require('is-main')
 
 if (isMain(module)) {
   console.log('is main')

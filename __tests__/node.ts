@@ -25,7 +25,7 @@ test("return true for main module", async () => {
 });
 
 describe("--experimental-modules", () => {
-  test(" return true for main module", async () => {
+  test("return true for main module", async () => {
     const { stdout } = await execa("node", [
       "--experimental-modules",
       fixturesDir("main.mjs"),
@@ -34,7 +34,7 @@ describe("--experimental-modules", () => {
     expect(stdout).toBe("is main");
   });
 
-  test(" return false for non-main module", async () => {
+  test("return false for non-main module", async () => {
     const { stdout } = await execa("node", [
       "--experimental-modules",
       fixturesDir("non-main.mjs"),
@@ -42,4 +42,41 @@ describe("--experimental-modules", () => {
 
     expect(stdout).toBe("");
   });
+});
+
+describe("ts-node", () => {
+  const args = [
+    "-T",
+    "--esm",
+    "-O",
+    JSON.stringify({ module: "ESNext" }),
+    "--preferTsExts",
+    "--skipProject",
+  ];
+
+  test(
+    "return true for main module",
+    async () => {
+      const { stdout } = await execa("ts-node", [
+        ...args,
+        fixturesDir("main.ts"),
+      ]);
+
+      expect(stdout).toBe("is main");
+    },
+    1000 * 30,
+  );
+
+  test(
+    "return false for non-main module",
+    async () => {
+      const { stdout } = await execa("ts-node", [
+        ...args,
+        fixturesDir("non-main.ts"),
+      ]);
+
+      expect(stdout).toBe("");
+    },
+    1000 * 30,
+  );
 });

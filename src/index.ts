@@ -1,3 +1,4 @@
+import { fileURLToPath } from "node:url";
 import * as process from "node:process";
 
 export function isMain(
@@ -19,12 +20,8 @@ export function isMain(
     return false;
   }
 
-  if (typeof process.mainModule === "undefined") {
-    const url = `file://${process.argv[1]}`;
-    return [url, `${url}.mjs`].includes(importMetaOrModule.url);
-  }
-
-  return importMetaOrModule.url === `file://${process.mainModule.filename}`;
+  const p = fileURLToPath(importMetaOrModule.url);
+  return p === process.argv[1];
 }
 
 export default isMain;

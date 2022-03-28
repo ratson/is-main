@@ -4,7 +4,7 @@
     "incremental": true,
     "noEmit": true
   },
-  "include": ["src/**/*.ts", "__tests__/**/*.ts"],
+  "include": ["src/**/*.ts", "__tests__/**/*.ts", "test/fixtures/*.ts"],
   "references": [
     { "path": "./tsconfig/tsconfig.cjs.json" },
     { "path": "./tsconfig/tsconfig.esm.json" }

@@ -1,6 +1,6 @@
 {
   "name": "is-main",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Check if current module is main module.",
   "type": "module",
   "main": "./dist/cjs/index.js",

@@ -14,7 +14,6 @@
     "lint": "xo",
     "pretest": "npm run build",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
-    "postinstall": "npx simple-git-hooks",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {

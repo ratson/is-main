@@ -84,3 +84,15 @@ describe("ts-node", () => {
     1000 * 30,
   );
 });
+
+describe("zx", () => {
+  test("return false for non-main ESM", async () => {
+    const { stdout } = await execa("zx", [fixturesDir("non-main.mjs")]);
+    expect(stdout).toBe("");
+  });
+
+  test("return true for main ESM", async () => {
+    const { stdout } = await execa("zx", [fixturesDir("zx.mjs")]);
+    expect(stdout).toBe("is main");
+  });
+});

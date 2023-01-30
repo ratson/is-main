@@ -3,6 +3,7 @@ import * as process from "node:process";
 
 export function isMain(
   importMetaOrModule: ImportMeta | NodeJS.Module,
+  getMainScriptPath = () => process.argv[1]
 ): boolean {
   if (!importMetaOrModule || typeof process === "undefined") {
     return false;
@@ -21,7 +22,7 @@ export function isMain(
   }
 
   const p = fileURLToPath(importMetaOrModule.url);
-  return p === process.argv[1];
+  return p === getMainScriptPath();
 }
 
 export default isMain;

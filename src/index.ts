@@ -1,5 +1,6 @@
-import { fileURLToPath } from "node:url";
+import * as path from "node:path";
 import * as process from "node:process";
+import { fileURLToPath } from "node:url";
 
 export function isMain(
   importMetaOrModule: ImportMeta | NodeJS.Module,
@@ -22,7 +23,9 @@ export function isMain(
   }
 
   const p = fileURLToPath(importMetaOrModule.url);
-  return p === getMainScriptPath();
+  const scriptPath = getMainScriptPath();
+  const ext = path.extname(scriptPath);
+  return p === (ext ? scriptPath : scriptPath + path.extname(p));
 }
 
 export default isMain;

@@ -28,6 +28,13 @@ describe("CJS", () => {
   });
 });
 
+describe("no file extension", () => {
+  test("return true for main module", async () => {
+    const { stdout } = await execa("node", [fixturesDir("no-ext")]);
+    expect(stdout).toBe("is main");
+  });
+});
+
 describe("--experimental-modules", () => {
   test("return true for main module", async () => {
     const { stdout } = await execa("node", [
